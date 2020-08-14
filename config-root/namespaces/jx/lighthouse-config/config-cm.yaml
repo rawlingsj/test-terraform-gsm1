@@ -64,7 +64,7 @@ data:
         - needs-rebase
         repos:
         - rawlingsj/test-terraform-gsm1
-      target_url: http://deck-jx.
+      target_url: http://deck-jx.35.224.88.106.nip.io
 kind: ConfigMap
 metadata:
   creationTimestamp: null
