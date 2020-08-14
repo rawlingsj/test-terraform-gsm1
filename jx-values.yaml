@@ -1,0 +1,92 @@
+jxRequirements:
+  autoUpdate:
+    enabled: false
+    schedule: ""
+  bootConfigURL: https://github.com/jenkins-x/jx3-boot-config
+  buildPacks:
+    buildPackLibrary:
+      gitRef: master
+      gitURL: https://github.com/jenkins-x/jxr-packs-kubernetes.git
+  cluster:
+    clusterName: tc-rocks
+    environmentGitOwner: todo
+    gitKind: github
+    gitName: github
+    gitServer: https://github.com
+    gke:
+      projectNumber: "688875092189"
+    namespace: jx
+    project: jenkins-x-labs-bdd
+    provider: gke
+    registry: gcr.io
+    vaultName: tc-rocks
+    vaultSAName: tc-rocks-vt
+    zone: us-central1-a
+  environments:
+  - ingress:
+      domain: ""
+      externalDNS: false
+      namespaceSubDomain: ""
+      tls:
+        email: ""
+        enabled: false
+        production: false
+    key: dev
+    owner: rawlingsj
+    repository: test-terraform-gsm1
+  - ingress:
+      domain: ""
+      externalDNS: false
+      namespaceSubDomain: ""
+      tls:
+        email: ""
+        enabled: false
+        production: false
+    key: staging
+  - ingress:
+      domain: ""
+      externalDNS: false
+      namespaceSubDomain: ""
+      tls:
+        email: ""
+        enabled: false
+        production: false
+    key: production
+  gitops: true
+  ingress:
+    domain: ""
+    externalDNS: false
+    namespaceSubDomain: -jx.
+    tls:
+      email: ""
+      enabled: false
+      production: true
+  kaniko: true
+  repository: nexus
+  secretStorage: gsm
+  storage:
+    backup:
+      enabled: false
+      url: ""
+    logs:
+      enabled: true
+      url: gs://logs-tc-rocks-43066b09b8cc
+    reports:
+      enabled: true
+      url: gs://reports-tc-rocks-43066b09b8cc
+    repository:
+      enabled: true
+      url: gs://repository-tc-rocks-43066b09b8cc
+  vault:
+    bucket: vault-tc-rocks-43066b09b8cc
+    key: crypto-key-tc-rocks-43066b09b8cc
+    keyring: keyring-tc-rocks-43066b09b8cc
+    name: tc-rocks
+    serviceAccount: tc-rocks-vt
+  velero:
+    schedule: ""
+    ttl: ""
+  versionStream:
+    ref: master
+    url: https://github.com/jenkins-x/jxr-versions.git
+  webhook: lighthouse

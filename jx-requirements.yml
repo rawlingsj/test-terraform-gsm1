@@ -7,37 +7,59 @@ buildPacks:
     gitRef: master
     gitURL: https://github.com/jenkins-x/jxr-packs-kubernetes.git
 cluster:
-  clusterName: ""
-  devEnvApprovers:
-  - todo
-  environmentGitOwner: "todo"
+  clusterName: tc-rocks
+  environmentGitOwner: todo
   gitKind: github
   gitName: github
   gitServer: https://github.com
+  gke:
+    projectNumber: "688875092189"
   namespace: jx
-  project:  ""
+  project: jenkins-x-labs-bdd
   provider: gke
   registry: gcr.io
-  zone: ""
+  vaultName: tc-rocks
+  vaultSAName: tc-rocks-vt
+  zone: us-central1-a
 environments:
-- key: dev
-  owner: ""
-  repository: ""
-- key: staging
-  owner: ""
-  repository: ""
-- key: production
-  owner: ""
-  repository: ""
+- ingress:
+    domain: ""
+    externalDNS: false
+    namespaceSubDomain: ""
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: dev
+  owner: rawlingsj
+  repository: test-terraform-gsm1
+- ingress:
+    domain: ""
+    externalDNS: false
+    namespaceSubDomain: ""
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: staging
+- ingress:
+    domain: ""
+    externalDNS: false
+    namespaceSubDomain: ""
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: production
 gitops: true
 ingress:
-  domain: ""
+  domain: 35.224.88.106.nip.io
   externalDNS: false
   namespaceSubDomain: -jx.
   tls:
     email: ""
     enabled: false
-    production: false
+    production: true
 kaniko: true
 repository: nexus
 secretStorage: gsm
@@ -46,15 +68,20 @@ storage:
     enabled: false
     url: ""
   logs:
-    enabled: false
-    url: ""
+    enabled: true
+    url: gs://logs-tc-rocks-43066b09b8cc
   reports:
-    enabled: false
-    url: ""
+    enabled: true
+    url: gs://reports-tc-rocks-43066b09b8cc
   repository:
-    enabled: false
-    url: ""
-vault: {}
+    enabled: true
+    url: gs://repository-tc-rocks-43066b09b8cc
+vault:
+  bucket: vault-tc-rocks-43066b09b8cc
+  key: crypto-key-tc-rocks-43066b09b8cc
+  keyring: keyring-tc-rocks-43066b09b8cc
+  name: tc-rocks
+  serviceAccount: tc-rocks-vt
 velero:
   schedule: ""
   ttl: ""
