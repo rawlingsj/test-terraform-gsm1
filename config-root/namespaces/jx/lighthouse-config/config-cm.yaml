@@ -64,9 +64,11 @@ data:
         - needs-rebase
         repos:
         - rawlingsj/test-terraform-gsm1
-      target_url: http://deck-jx.35.224.88.106.nip.io
+      target_url: http://deck-jx.
 kind: ConfigMap
 metadata:
   creationTimestamp: null
   name: config
   namespace: jx
+  labels:
+    gitops.jenkins-x.io/pipeline: 'environment'
